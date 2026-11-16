@@ -5,17 +5,22 @@ on:
     branches:
       - 'develop'
     types:
-      - closed  
+      - closed
 
 jobs:
   build:
     if: github.event.review.merged == true
     runs-on: ubuntu-latest
+    
     permissions:
       contents: write
+    
     defaults:
       run:
         working-directory: java
+    ENV:
+      TAG="build-${{ github.run_id }}"
+
     steps:
       - uses: actions/checkout@v4
 
@@ -27,4 +32,9 @@ jobs:
 
       - name: Build
         run: mvn -B compile
+
+      - name: Taggea
+        run: | 
+          git tag $TAG
+          git push --tags 
 
