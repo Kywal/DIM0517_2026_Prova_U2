@@ -1,5 +1,12 @@
 name: Java
 
+on: 
+  pull_request:
+    branches:
+      - 'develop/**'
+    types: accepted
+ 
+
 jobs:
   build:
 
@@ -18,4 +25,17 @@ jobs:
 
       - name: Build
         run: mvn -B compile
+  tests:
+    needs: build
+    
+    runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        working-directory: java 
+
+    steps:
+      - name: Testes unitários
+      - run: mvn test
+
 
