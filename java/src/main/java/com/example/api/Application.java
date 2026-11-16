@@ -24,4 +24,9 @@ public class Application {
     public Map<String, String> healthy() {
         return Map.of("status", "healthy");
     }
+
+    @GetMapping("/test")
+    public Map<String, String> healthy() {
+        return Map.of("test", "testing");
+    }
 }
