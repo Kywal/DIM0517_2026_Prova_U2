@@ -1,8 +1,15 @@
 name: Java
 
+on:
+  pull_request_target:
+    branches:
+      - 'develop'
+    types:
+      - closed  
 
 jobs:
   build:
+    if: github.event.review.merged == true
     runs-on: ubuntu-latest
     permissions:
       contents: write
