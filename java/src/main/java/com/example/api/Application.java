@@ -26,12 +26,7 @@ public class Application {
     }
 
     @GetMapping("/test")
-<<<<<<< Updated upstream
-    public Map<String, String> healthy() {
-        return Map.of("test", "testing!!");
-=======
     public Map<String, String> test() {
         return Map.of("test", "testing!");
->>>>>>> Stashed changes
     }
 }
