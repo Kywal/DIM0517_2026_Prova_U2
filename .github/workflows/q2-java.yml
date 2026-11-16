@@ -36,6 +36,6 @@ jobs:
 
     steps:
       - name: Testes unitários
-      - run: mvn test
+        run: mvn test
 
 
